@@ -1,6 +1,5 @@
-<!-- src/components/BogoSortVisualizer.vue -->
 <template>
-    <main class="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
+    <main class="flex flex-col items-center gap-3 justify-center min-h-[101vh] p-8 bg-gray-200">
         <div class="flex flex-col gap-8 w-full max-w-2xl p-8 bg-white shadow-lg rounded-xl relative">
             <h1 class="text-3xl font-bold text-center">ボゴソート可視化アプリ</h1>
             <canvas ref="canvas" class="w-full h-full border-0 p-3"></canvas>
@@ -9,6 +8,28 @@
                     @click="startSorting">ボゴソート開始！</button>
             </div>
         </div>
+        <div class="w-full max-w-2xl text-right px-8">
+            <a class="text-lg font-bold text-gray-500 underline underline-offset-4 cursor-pointer"
+                onclick="modal.showModal()">ボゴソートとは？</a>
+        </div>
+        <dialog id="modal" class="modal">
+            <div class="modal-box">
+                <h3 class="text-lg font-bold">ボゴソートとは？</h3>
+                <p class="py-4">
+                    ボゴソートは、非常に非効率なソートアルゴリズムで、配列がソートされているかどうかを確認し、ソートされていない場合はランダムにシャッフルするという手法を繰り返します。<br>
+                    このアルゴリズムは、平均的な時間計算量が
+                    $$
+                    \begin{eqnarray}
+                    \sum^n_{k=1}a_k = S_n = a_1 + a_2 + ....+a_n
+                    \end{eqnarray}
+                    $$
+                    であり、実用的ではありませんが、教育目的やジョークとして使われることがあります。
+                </p>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
     </main>
 </template>
 
