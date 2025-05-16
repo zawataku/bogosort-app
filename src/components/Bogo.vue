@@ -1,7 +1,7 @@
 <template>
     <main class="flex flex-col items-center gap-3 justify-center min-h-[101vh] p-8 bg-gray-200">
         <div class="flex flex-col gap-8 w-full max-w-2xl p-8 bg-white shadow-lg rounded-xl relative">
-            <h1 class="text-3xl font-bold text-center">ボゴソート可視化アプリ</h1>
+            <h1 class="text-3xl font-bold text-center">ボゴソート可視化アプリ（β版）</h1>
             <canvas ref="canvas" class="w-full h-full border-0 p-3"></canvas>
             <div class="flex justify-center">
                 <button class="bg-blue-500 text-white text-lg font-bold py-3 px-8 rounded-lg text-center"
@@ -13,17 +13,18 @@
                 onclick="modal.showModal()">ボゴソートとは？</a>
         </div>
         <dialog id="modal" class="modal">
-            <div class="modal-box">
-                <h3 class="text-lg font-bold">ボゴソートとは？</h3>
-                <p class="py-4">
-                    ボゴソートは、非常に非効率なソートアルゴリズムで、配列がソートされているかどうかを確認し、ソートされていない場合はランダムにシャッフルするという手法を繰り返します。<br>
-                    このアルゴリズムは、平均的な時間計算量が
-                    $$
-                    \begin{eqnarray}
-                    \sum^n_{k=1}a_k = S_n = a_1 + a_2 + ....+a_n
-                    \end{eqnarray}
-                    $$
-                    であり、実用的ではありませんが、教育目的やジョークとして使われることがあります。
+            <div class="modal-box flex flex-col">
+                <h3 class="font-bold text-center text-2xl py-4">ボゴソートとは？</h3>
+                <p class="py-4 leading-7">
+                    ボゴソートとはソートアルゴリズムの一種であり、配列がソートされているかどうかを確認し、ソートされていない場合はランダムにシャッフルするという手法をソートが完了するまで繰り返します。
+                    <br>
+                    <br>
+                    このアルゴリズムの平均計算時間は O(n×n!) 、最悪計算時間は O(∞) であり、数あるソートアルゴリズムの中でも最悪の性能とされています。
+                    <br>
+                    <br>
+                    しかしその反面、最良計算時間は O(n) というクイックソートを超える最速のソート時間を叩き出すことができるため、理論上は最速のソートアルゴリズムとも言われています...たぶん。
+                    <br>
+
                 </p>
             </div>
             <form method="dialog" class="modal-backdrop">
