@@ -5,7 +5,7 @@
             <h1 class="text-3xl font-bold text-center">ボゴソート可視化アプリ</h1>
             <canvas ref="canvas" class="w-full h-full border-0 p-3"></canvas>
             <div class="flex justify-center">
-                <button class="bg-blue-500 text-white py-3 px-8 rounded-lg text-center"
+                <button class="bg-blue-500 text-white text-lg font-bold py-3 px-8 rounded-lg text-center"
                     @click="startSorting">ボゴソート開始！</button>
             </div>
         </div>
@@ -19,7 +19,7 @@ export default defineComponent({
     name: 'BogoSort',
     setup() {
         const canvas = ref<HTMLCanvasElement | null>(null);
-        const arraySize = 7;
+        const arraySize = 5;
         let array: number[] = [];
         let sorting = false;
         let sortInterval: number;
