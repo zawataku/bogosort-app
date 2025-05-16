@@ -13,7 +13,7 @@ export default defineComponent({
     name: 'BogoSort',
     setup() {
         const canvas = ref<HTMLCanvasElement | null>(null);
-        const arraySize = 10;
+        const arraySize = 7;
         let array: number[] = [];
         let sorting = false;
         let sortInterval: number;
