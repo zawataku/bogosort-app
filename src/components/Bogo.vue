@@ -27,8 +27,11 @@ export default defineComponent({
         // 配列を初期化
         function initArray() {
             array = [];
+            // Canvasの高さを基準に最大値を決定
+            const maxHeight = canvas.value ? canvas.value.height : 400;
             for (let i = 0; i < arraySize; i++) {
-                array.push(Math.floor(Math.random() * 400));
+                // バーの高さがCanvas内に収まるように調整
+                array.push(Math.floor(Math.random() * (maxHeight * 0.9)) + 10);
             }
             drawArray();
         }

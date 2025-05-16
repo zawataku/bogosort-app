@@ -1,1 +1,6 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap');
+
+#app {
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
