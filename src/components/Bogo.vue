@@ -1,9 +1,15 @@
 <!-- src/components/BogoSortVisualizer.vue -->
 <template>
-    <div>
-        <canvas ref="canvas" width="800" height="400"></canvas>
-        <button @click="startSorting">ソート開始</button>
-    </div>
+    <main class="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
+        <div class="flex flex-col gap-8 w-full max-w-2xl p-8 bg-white shadow-lg rounded-xl relative">
+            <h1 class="text-3xl font-bold text-center">ボゴソート可視化アプリ</h1>
+            <canvas ref="canvas" class="w-full h-full border-0 p-3"></canvas>
+            <div class="flex justify-center">
+                <button class="bg-blue-500 text-white py-3 px-8 rounded-lg text-center"
+                    @click="startSorting">ボゴソート開始！</button>
+            </div>
+        </div>
+    </main>
 </template>
 
 <script lang="ts">
@@ -35,7 +41,7 @@ export default defineComponent({
                     ctx.clearRect(0, 0, canvas.value.width, canvas.value.height);
                     const barWidth = canvas.value.width / arraySize;
                     for (let i = 0; i < array.length; i++) {
-                        ctx.fillStyle = 'blue';
+                        ctx.fillStyle = '#2b7fff';
                         ctx.fillRect(i * barWidth, canvas.value.height - array[i], barWidth, array[i]);
                     }
                 }
@@ -92,14 +98,3 @@ export default defineComponent({
     }
 });
 </script>
-
-<style scoped>
-canvas {
-    border: 1px solid black;
-}
-
-button {
-    display: block;
-    margin: 20px 0;
-}
-</style>
