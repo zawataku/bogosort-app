@@ -1,7 +1,10 @@
 <template>
-    <main class="flex flex-col items-center gap-3 justify-center min-h-[101vh] p-8 bg-gray-200">
+    <main class="flex flex-col items-center gap-3 justify-center min-h-screen md:min-h-[101vh] p-8 bg-gray-200">
         <div class="flex flex-col gap-8 w-full max-w-2xl p-8 bg-white shadow-lg rounded-xl relative">
             <h1 class="text-3xl font-bold text-center">ボゴソート可視化アプリ（β版）</h1>
+            <div class="text-center text-gray-700 text-lg font-semibold">
+                ソート試行回数: {{ trialCount }}
+            </div>
             <canvas ref="canvas" class="w-full h-full border-0 p-3"></canvas>
             <div class="flex justify-center">
                 <button class="bg-blue-500 text-white text-lg font-bold py-3 px-8 rounded-lg text-center"
@@ -45,16 +48,16 @@ export default defineComponent({
         let array: number[] = [];
         let sorting = false;
         let sortInterval: number;
+        const trialCount = ref(0); // 追加: 試行回数
 
         // 配列を初期化
         function initArray() {
             array = [];
-            // Canvasの高さを基準に最大値を決定
             const maxHeight = canvas.value ? canvas.value.height : 400;
             for (let i = 0; i < arraySize; i++) {
-                // バーの高さがCanvas内に収まるように調整
                 array.push(Math.floor(Math.random() * (maxHeight * 0.9)) + 10);
             }
+            trialCount.value = 0; // 追加: 試行回数リセット
             drawArray();
         }
 
@@ -93,6 +96,7 @@ export default defineComponent({
 
         // ボゴソートの実行
         function bogoSort() {
+            trialCount.value++; // 追加: 試行回数をインクリメント
             if (!isSorted()) {
                 shuffleArray();
                 drawArray();
@@ -118,7 +122,8 @@ export default defineComponent({
 
         return {
             canvas,
-            startSorting
+            startSorting,
+            trialCount // 追加: テンプレートで使うため返却
         };
     }
 });
